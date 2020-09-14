@@ -55,6 +55,7 @@ let g:user_zen_mode='a'
 """"""""""""""""""""""""""""""
 ino <c-j> <c-r>=snipMate#TriggerSnippet()<cr>
 snor <c-j> <esc>i<right><c-r>=snipMate#TriggerSnippet()<cr>
+let g:snipMate = { 'snippet_version' : 1 }
 
 
 """"""""""""""""""""""""""""""
@@ -209,4 +210,20 @@ nnoremap <F6> :ToggleWhitespace<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => autozimu/LanguageClient-neovim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:LanguageClient_serverCommands = {
+  \ 'cpp': ['clangd'],
+  \ }
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => rhysd/vim-clang-format
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:clang_format#detect_style_file = 1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => dracula
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:dracula_italic = 0
 
