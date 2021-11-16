@@ -46,4 +46,5 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 Plug 'crusoexia/vim-monokai'
+Plug 'liuchengxu/vista.vim'
 call plug#end()
