@@ -22,15 +22,6 @@ map <leader>f :MRU<CR>
 
 
 """"""""""""""""""""""""""""""
-" => YankStack
-""""""""""""""""""""""""""""""
-let g:yankstack_yank_keys = ['y', 'd']
-
-nmap <c-p> <Plug>yankstack_substitute_older_paste
-nmap <c-n> <Plug>yankstack_substitute_newer_paste
-
-
-""""""""""""""""""""""""""""""
 " => CTRL-P
 """"""""""""""""""""""""""""""
 let g:ctrlp_working_path_mode = 0
@@ -41,21 +32,6 @@ map <c-b> :CtrlPBuffer<cr>
 
 let g:ctrlp_max_height = 20
 let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
-
-
-""""""""""""""""""""""""""""""
-" => ZenCoding
-""""""""""""""""""""""""""""""
-" Enable all functions in all modes
-let g:user_zen_mode='a'
-
-
-""""""""""""""""""""""""""""""
-" => snipMate (beside <TAB> support <CTRL-j>)
-""""""""""""""""""""""""""""""
-ino <c-j> <c-r>=snipMate#TriggerSnippet()<cr>
-snor <c-j> <esc>i<right><c-r>=snipMate#TriggerSnippet()<cr>
-let g:snipMate = { 'snippet_version' : 1 }
 
 
 """"""""""""""""""""""""""""""
@@ -95,14 +71,6 @@ let g:multi_cursor_quit_key            = '<Esc>'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => surround.vim config
-" Annotate strings with gettext
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-vmap Si S(i_<esc>f)
-au FileType mako vmap Si S"i${ _(<esc>2f"a) }<esc>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => lightline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:lightline = {
@@ -130,14 +98,6 @@ let g:lightline = {
       \ 'subseparator': { 'left': ' ', 'right': ' ' }
       \ }
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vimroom
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:goyo_width=100
-let g:goyo_margin_top = 2
-let g:goyo_margin_bottom = 2
-nnoremap <silent> <leader>z :Goyo<cr>
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vim-go
@@ -153,7 +113,13 @@ let g:ale_linters = {
 \   'python': ['flake8','autopep8','pyflakes','pylint'],
 \   'javascript': ['eslint'],
 \   'fortran': ['gcc'],
-\   'matlab': ['mlint']
+\   'matlab': ['mlint'],
+\   'cpp': ['clangd', 'cc', 'ccls']
+\   }
+
+let g:ale_fixers = {
+\   'cpp' :['clang-format'],
+\   'python' :['autopep8', 'black']
 \   }
 
 let g:ale_fortran_gcc_use_free_form = 1
